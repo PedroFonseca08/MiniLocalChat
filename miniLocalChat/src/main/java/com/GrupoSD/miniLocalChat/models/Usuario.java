@@ -25,21 +25,21 @@ public class Usuario {
     @Column(name = "id_usuario", unique = true)
     private Integer idUsuario;
     
-    @Column(name = "email", unique = true, nullable = false, length = 45)
+    @Column(name = "email", unique = true, nullable = false, length = 80)
     @NotBlank(groups = CriarUsuario.class)
-    @Size(groups = CriarUsuario.class, min = 2, max = 45)
+    @Size(groups = CriarUsuario.class, min = 2, max = 80)
     private String emailUsuario;
 
-    @Column(name = "nome_usuario", unique = true, nullable = false, length = 45)
+    @Column(name = "nome_usuario", unique = true, nullable = false, length = 80)
     @NotBlank(groups = CriarUsuario.class)
-    @Size(groups = CriarUsuario.class, min = 2, max = 45)
+    @Size(groups = CriarUsuario.class, min = 2, max = 80)
     private String nomeUsuario;
 
     
     @JsonProperty(access = Access.WRITE_ONLY)
-    @Column(name = "senha", nullable = false, length = 45)
+    @Column(name = "senha", nullable = false, length = 80)
     @NotBlank(groups = {CriarUsuario.class})
-    @Size(groups = {CriarUsuario.class}, min = 8, max = 45)
+    @Size(groups = {CriarUsuario.class}, min = 8, max = 80)
     private String senhaUsuario;
 
     public Usuario() {

@@ -1,5 +1,6 @@
 package com.GrupoSD.miniLocalChat.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,17 @@ public class UsuarioService {
         objUsuario = this.usuarioRepositorio.save(objUsuario);
 
         return objUsuario;
+    }
+
+    public boolean autenticarUsuario(String email, String senha){ //Essa porra aq
+
+        Usuario usuario = usuarioRepositorio.findByEmailUsuarioAndsenhaUsuario(email, senha);
+        
+        if (usuario != null){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
