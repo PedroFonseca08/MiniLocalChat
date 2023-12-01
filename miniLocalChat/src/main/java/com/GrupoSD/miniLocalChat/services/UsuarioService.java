@@ -29,15 +29,15 @@ public class UsuarioService {
         return objUsuario;
     }
 
-    public boolean autenticarUsuario(String email, String senha){ //Essa porra aq
+    public Usuario autenticarUsuario(String email, String senha){ //Essa porra aq
 
         Usuario usuario = usuarioRepositorio.findByEmailUsuarioAndsenhaUsuario(email, senha);
         
         if (usuario != null){
-            return true;
+            return usuario;
         }
         else{
-            return false;
+            return null;
         }
     }
 }
