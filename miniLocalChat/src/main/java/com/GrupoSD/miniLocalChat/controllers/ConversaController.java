@@ -66,4 +66,11 @@ public class ConversaController {
 
         return ResponseEntity.created(uri).build();
     }
+
+    @GetMapping("/proximoId/{idU}")
+    public ResponseEntity<Integer> obterProximoIdConversa(@PathVariable Integer idU) {
+        Integer proximoId = this.conversaService.obterProximoIdConversa(idU);
+        return ResponseEntity.ok(proximoId);
+    }
+
 }
