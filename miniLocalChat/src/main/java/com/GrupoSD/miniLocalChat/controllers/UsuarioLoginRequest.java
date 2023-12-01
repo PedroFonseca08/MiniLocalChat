@@ -11,6 +11,15 @@ public class UsuarioLoginRequest {
     private String senhaUsuario;
 
 
+    public UsuarioLoginRequest() {
+    }
+
+
+    public UsuarioLoginRequest(String emailUsuario, String senhaUsuario) {
+        this.emailUsuario = emailUsuario;
+        this.senhaUsuario = senhaUsuario;
+    }
+
     public String getEmailUsuario() {
         return this.emailUsuario;
     }

@@ -1,6 +1,7 @@
 package com.GrupoSD.miniLocalChat.controllers;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,11 +30,25 @@ public class ConversaController {
     private ConversaService conversaService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<List<Conversa>> encontrarTodasDoUsuario(@PathVariable Integer id){
+    public ResponseEntity<List<ConversaAndID>> encontrarTodasDoUsuario(@PathVariable Integer id) {
         List<Conversa> conversas = this.conversaService.encontrarConversasPorUsuario(id);
+        List<ConversaAndID> conversasUsuario = new ArrayList<>();
+        ArrayList<Integer> idsAux = new ArrayList<>();
 
-        return ResponseEntity.ok(conversas);
+        for (Conversa conversa : conversas) {
+            
+            if (!idsAux.contains(conversa.getIdConversa())) {
+                ConversaAndID conversaDto = new ConversaAndID();
+                conversaDto.setPrimeiraPergunta(conversa.getPergunta()); 
+                conversaDto.setId(conversa.getIdConversa()); 
+                idsAux.add(conversa.getIdConversa());
+                conversasUsuario.add(conversaDto);
+            }
+        }
+    
+        return ResponseEntity.ok(conversasUsuario);
     }
+    
 
     @GetMapping("/{idU}/{idC}")
     public ResponseEntity<List<Conversa>> encontrarTodasDaConversa(@PathVariable Integer idU, @PathVariable Integer idC){
