@@ -29,4 +29,15 @@ public class ConversaService {
         obj = this.conversaRepositorio.save(obj);
         return obj;
     }
+
+    public Integer obterProximoIdConversa(Integer idUsuario) {
+        Integer ultimoId = conversaRepositorio.findMaxIdConversa(idUsuario);
+
+        if (ultimoId == null){
+            return 1;
+        }
+        else{
+            return ultimoId + 1;
+        }
+    }
 }

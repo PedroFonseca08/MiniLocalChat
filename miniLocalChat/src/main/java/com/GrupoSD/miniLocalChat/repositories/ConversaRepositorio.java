@@ -18,4 +18,7 @@ public interface ConversaRepositorio extends JpaRepository<Conversa, String> {
 
     @Query("SELECT c FROM Conversa c WHERE c.idUsuario = :idUsuario AND c.idConversa = :idConversa")
     List<Conversa> findByIdUsuarioAndIdConversa(@Param("idUsuario") Integer idUsuario, @Param("idConversa") Integer idConversa);
+
+    @Query(value = "SELECT MAX(id_conversa) FROM Conversa WHERE id_usuario = :idUsuario", nativeQuery = true)
+    Integer findMaxIdConversa(@Param("idUsuario") Integer idUsuario);
 }

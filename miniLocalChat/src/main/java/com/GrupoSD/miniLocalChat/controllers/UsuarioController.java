@@ -43,4 +43,17 @@ public class UsuarioController {
 
         return ResponseEntity.created(uri).build();
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<Usuario> autenticarUsuario(@Valid @RequestBody UsuarioLoginRequest loginRequest) {
+        String email = loginRequest.getEmailUsuario();
+        String senha = loginRequest.getSenhaUsuario();
+
+        Usuario objUsuario = usuarioService.autenticarUsuario(email, senha);
+        if (objUsuario != null) {
+            return ResponseEntity.ok().body(objUsuario);
+        } else {
+            return ResponseEntity.status(401).build();
+        }
+    }
 }
