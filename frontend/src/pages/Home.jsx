@@ -15,6 +15,10 @@ const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [historic, setHistoric] = useState([]);
 
+  const [lastQuestion, setLastQuestion] = useState("");
+  const [lastAnswer, setLastAnswer] = useState("");
+
+
   const { chatId } = useContext(ChatContext);
 
   useEffect(() => {
@@ -60,6 +64,10 @@ const Home = () => {
     });
   };
 
+  useEffect(() => {
+    saveInBD();
+  }, [lastAnswer]);
+
   const postQuestion = async (userQuestion) => {
     try {
       const response = await fetch("http://localhost:11434/api/generate", {
@@ -99,9 +107,12 @@ const Home = () => {
       }
       setAiAnswerStop(false);
       setAiAnswers([...aiAnswers, aiAnswerText]);
+
+      setLastQuestion(userQuestion);
+      setLastAnswer(aiAnswerText);
   
       // Save the question and answer to the database
-      await saveInBD();
+      //await saveInBD();
     } catch (error) {
       console.error("Erro durante a chamada POST:", error);
     }
@@ -150,7 +161,8 @@ const Home = () => {
                       <span>AI</span>
                     </div>
                     <p className="whitespace-pre-wrap">
-                      {index === userQuestion.length - 1 ? aiAnswer[0] : aiAnswers[index]}
+                      {/* {index === userQuestion.length - 1 ? aiAnswer[0] : aiAnswers[index]} */}
+                      {aiAnswers[index]}
                     </p>
                   </div>
                 </div>

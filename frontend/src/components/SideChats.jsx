@@ -6,7 +6,7 @@ import { useRef } from "react";
 
 const SideChats = () => {
   const [chats, setChats] = useState(["Chat 1", "Chat 2", "Chat 3"]);
-  const [lastID, setLastID] = useState(3);
+  const [lastID, setLastID] = useState(-1);
 
   const { chatId, changeChat } = useContext(ChatContext);
 
@@ -18,14 +18,18 @@ const SideChats = () => {
       });
   }, [chatId]);
 
-  /* useEffect(() => {
-    if  */
+  useEffect(() => {
+    fetch("http://localhost:8080/conversa/proximoId/1")
+      .then((res) => res.json())
+      .then((json) => {
+        setLastID(json);
+      });
+  }, [chatId]);
 
   return (
     <div className="left-0 top-0 lg:w-[20vw] h-full fixed bg-gray-950 z-[100] flex flex-col rounded-tr-3xl rounded-br-3xl lg:visible invisible">
       <button
-        className="
-            dark:text-gray-200 h-14 text-gray-900  hover:bg-blue-400 hover:dark:bg-blue-400 hover:text-gray-200 flex items-center pl-8 mx-4 rounded-3xl mt-4 dark:bg-gray-900 lg:transition-all lg:duration-500 hover:border-blue-400 bg-gray-300 group font-bold text-l"
+        className={"dark:text-gray-200 h-14 text-gray-900  hover:bg-blue-400 hover:dark:bg-blue-400 hover:text-gray-200 flex items-center pl-8 mx-4 rounded-3xl mt-4 lg:transition-all lg:duration-500 hover:border-blue-400 group font-bold text-l" + (chatId === lastID ? " bg-blue-400 dark:bg-blue-400 text-gray-200 dark:text-gray-200" : "  dark:bg-gray-900 bg-gray-300 ")}
             onClick={() => changeChat(lastID)}
       >
         <FaPlus className="mr-2 group-hover:rotate-[360deg] lg:duration-700 lg:transition-all" />
@@ -40,7 +44,7 @@ const SideChats = () => {
         {chats.map((chat, index) => (
           <button
             key={index}
-            className={"dark:text-gray-200 h-14 text-gray-900  hover:bg-blue-400 hover:dark:bg-blue-400 hover:text-gray-200 flex items-center pl-8 mx-4 rounded-3xl mt-4 dark:bg-gray-900 lg:transition-all lg:duration-500 hover:border-blue-400 bg-gray-300  overflow-hidden" + (chatId === index ? " bg-blue-400 dark:bg-blue-400 text-gray-200 dark:text-gray-200" : "")} 
+            className={"dark:text-gray-200 h-14 text-gray-200  hover:bg-blue-400 hover:dark:bg-blue-400 hover:text-gray-200 flex items-center pl-8 mx-4 rounded-3xl mt-4 lg:transition-all lg:duration-500 hover:border-blue-400  overflow-hidden" + (chatId === index ? " bg-blue-400 dark:bg-blue-400 text-gray-200 dark:text-gray-200" : "")} 
             onClick={() => changeChat(index)}
           >
             {chat.primeiraPergunta}
