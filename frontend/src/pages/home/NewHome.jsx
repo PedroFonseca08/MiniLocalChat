@@ -1,9 +1,9 @@
 import { useEffect, useState, useContext } from "react";
-import Header from "../components/Header";
-import SideChats from "../components/SideChats";
-import QuestionBar from "../components/QuestionBar";
-import Card from "../components/Card";
-import { ChatContext } from "../contexts/ChatContext";
+import Header from "../../components/Header";
+import SideChats from "../../components/SideChats";
+import QuestionBar from "../../components/QuestionBar";
+import Card from "../../components/Card";
+import { ChatContext } from "../../contexts/ChatContext";
 
 const NewHome = () => {
   const [question, setQuestion] = useState("");
@@ -11,7 +11,7 @@ const NewHome = () => {
 
   const [lastQuestion, setLastQuestion] = useState("");
   const [lastAnswer, setLastAnswer] = useState("");
-  
+
   const [messages, setMessages] = useState([]);
 
   const [historic, setHistoric] = useState([]);
@@ -27,9 +27,9 @@ const NewHome = () => {
         pergunta: historic[historic.length - 1].pergunta,
         resposta: historic[historic.length - 1].resposta,
       };
-  
+
       console.log(objeto);
-  
+
       fetch("http://localhost:8080/conversa", {
         method: "POST",
         headers: {
@@ -108,14 +108,14 @@ const NewHome = () => {
                 />)
               }
               )} */}
-              {historic.map((message, index) => 
-                (<Card
+              {historic.map((message, index) => (
+                <Card
                   key={index}
                   index={index}
                   question={message.pergunta}
                   answer={message.resposta}
-                />)
-              )}
+                />
+              ))}
             </div>
             <QuestionBar
               question={question}

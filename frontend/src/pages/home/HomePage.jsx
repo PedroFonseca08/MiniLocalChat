@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
 import { BsPersonFill, BsRobot } from "react-icons/bs";
-import Header from "../components/Header";
-import SideChats from "../components/SideChats";
-import QuestionBar from "../components/QuestionBar";
-import { ChatContext } from "../contexts/ChatContext";
+import Header from "../../components/Header";
+import SideChats from "../../components/SideChats";
+import QuestionBar from "../../components/QuestionBar";
+import { ChatContext } from "../../contexts/ChatContext";
 
 const Home = () => {
   const [question, setQuestion] = useState("");
@@ -18,7 +18,6 @@ const Home = () => {
   const [lastQuestion, setLastQuestion] = useState("");
   const [lastAnswer, setLastAnswer] = useState("");
 
-
   const { chatId } = useContext(ChatContext);
 
   useEffect(() => {
@@ -30,8 +29,8 @@ const Home = () => {
       .then((json) => {
         setIsLoaded(true);
         setHistoric(json);
-        setUserQuestion(json.map(item => item.pergunta));
-        setAiAnswers(json.map(item => item.resposta));
+        setUserQuestion(json.map((item) => item.pergunta));
+        setAiAnswers(json.map((item) => item.resposta));
       });
   }, [chatId]);
 
@@ -81,28 +80,28 @@ const Home = () => {
           stream: true,
         }),
       });
-  
+
       if (!response.ok) {
         throw new Error("Erro ao enviar a pergunta para a API");
       }
-  
+
       const reader = response.body.getReader();
       let aiAnswerText = "";
-  
+
       setAiAnswerStop(true);
-  
+
       while (true) {
         const { done, value } = await reader.read();
-  
+
         if (done) {
           break;
         }
-  
+
         const text = new TextDecoder().decode(value);
         const responseData = JSON.parse(text);
-  
+
         aiAnswerText += responseData.response;
-  
+
         setAiAnswer([aiAnswerText]);
       }
       setAiAnswerStop(false);
@@ -110,7 +109,7 @@ const Home = () => {
 
       setLastQuestion(userQuestion);
       setLastAnswer(aiAnswerText);
-  
+
       // Save the question and answer to the database
       //await saveInBD();
     } catch (error) {
@@ -153,9 +152,7 @@ const Home = () => {
                     <span>You</span>
                   </div>
                   <p className="whitespace-pre">{question}</p>
-                  <div
-                    className="relative px-6 py-4 rounded-2xl m-6 shadow-2xl dark:shadow-md bg-gray-200 dark:bg-gray-700 dark:text-white sm:transition-all hover:sm:duration-500 sm:duration-500 sm:ease-out flex flex-col min-h-[4rem]"
-                  >
+                  <div className="relative px-6 py-4 rounded-2xl m-6 shadow-2xl dark:shadow-md bg-gray-200 dark:bg-gray-700 dark:text-white sm:transition-all hover:sm:duration-500 sm:duration-500 sm:ease-out flex flex-col min-h-[4rem]">
                     <div className="flex items-center mb-2 text-gray-500 dark:text-gray-400">
                       <BsRobot className="mr-2" />
                       <span>AI</span>
