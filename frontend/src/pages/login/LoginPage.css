@@ -8,8 +8,8 @@ form {
 
 input {
   background-color: transparent;
-  width: 100%; /* Ajuste este valor conforme necessário */
-  height: 55px; /* Ajuste este valor conforme necessário */
+  width: 100%;
+  height: 55px;
   border-radius: 20px;
   padding-left: 20px;
 }
@@ -49,6 +49,7 @@ button:disabled {
   background-color: rgba(255, 255, 255, 0.3);
   transition: 0.3s all;
   margin-bottom: 10px;
+  padding-left: 20px;
 }
 .emailField:hover {
   background-color: rgba(255, 255, 255, 0.45);
@@ -62,6 +63,7 @@ button:disabled {
   position: relative;
   background-color: rgba(255, 255, 255, 0.3);
   transition: 0.3s all;
+  padding-left: 20px;
 }
 .passwordField:hover {
   background-color: rgba(255, 255, 255, 0.45);

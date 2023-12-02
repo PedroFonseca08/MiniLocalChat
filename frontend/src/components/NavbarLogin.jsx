@@ -23,7 +23,7 @@ const Navbar = ({
 
   return (
     <nav className="bg-gray-50 dark:bg-gray-950 fixed w-full top-0 flex bg-opacity-30 backdrop-blur-lg z-[100] dark:bg-opacity-30 dark:backdrop-blur-lg h-20">
-      <div className="max-w-screen-xl mx-auto p-4 flex justify-between items-center lg:pl-[20rem]">
+      <div className="max-w-screen-xl mx-auto p-4 flex justify-between items-center ">
         <NavLink to="/">
           <div className="group px-4 flex justify-beetween items-center cursor-pointer justify-center transition-all duration-700">
             <FaGlasses className="text-sky-400 text-4xl group-hover:rotate-[360deg] duration-700 transition-all" />
