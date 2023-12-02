@@ -6,6 +6,18 @@ form {
   width: 300px;
 }
 
+input {
+  background-color: transparent;
+  width: 100%; /* Ajuste este valor conforme necessário */
+  height: 55px; /* Ajuste este valor conforme necessário */
+  border-radius: 20px;
+  padding-left: 20px;
+}
+
+button[data-testid="login-button"] {
+  margin-top: 10px;
+}
+
 .centralize {
   display: flex;
   flex-direction: column;
