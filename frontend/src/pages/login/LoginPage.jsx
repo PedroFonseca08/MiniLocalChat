@@ -45,20 +45,22 @@ function LoginPage() {
             }
             data-testid="email"
           />
-          <ValidationError
+          {/* <ValidationError
             hasChanged={form.email.hasChanged}
             errorMessage="Email é obrigatório"
             testId="email-required"
             type="required"
             value={form.email.value}
-          />
-          <ValidationError
-            hasChanged={form.email.hasChanged}
-            errorMessage="Email é inválido"
-            testId="email-invalid"
-            type="email"
-            value={form.email.value}
-          />
+          /> */}
+          {form.email.hasChanged && form.email.value && (
+            <ValidationError
+              hasChanged={form.email.hasChanged}
+              errorMessage="Email é inválido"
+              testId="email-invalid"
+              type="email"
+              value={form.email.value}
+            />
+          )}
         </div>
 
         <div className="passwordField">
