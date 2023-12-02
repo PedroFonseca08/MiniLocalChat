@@ -42,6 +42,10 @@ button:disabled {
   cursor: not-allowed;
 }
 
+input:focus {
+  outline: none;
+}
+
 .emailField {
   width: 100%;
   height: 56px;
