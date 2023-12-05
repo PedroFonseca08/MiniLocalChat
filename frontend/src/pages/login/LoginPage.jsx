@@ -25,6 +25,16 @@ function LoginPage() {
     navigate("/home");
   };
 
+  const handleLogin = async () => {
+    try {
+      const userData = await login(form.email.value, form.password.value);
+      console.log('Usuário logado:', userData);
+      goToHomePage();
+    } catch (error) {
+      console.error('Erro no login:', error.message);
+    }
+  }
+
   return (
     <main className="centralize">
       <HeaderLogin />
@@ -93,7 +103,7 @@ function LoginPage() {
           className="dark:text-gray-200 px-2 mx-2 cursor-pointer hover:text-sky-500 dark:hover:text-sky-500 transition-all duration-200 flex items-center py-2"
           data-testid="login-button"
           disabled={!isEmailValid(form.email.value) || !form.password.value}
-          onClick={goToHomePage}
+          onClick={handleLogin}
         >
           Entrar
         </button>
