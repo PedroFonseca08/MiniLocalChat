@@ -4,6 +4,7 @@ import ValidationError from "../../components/validation-error/ValidationError";
 import "./LoginPage.css";
 import { useNavigate } from "react-router-dom";
 import HeaderLogin from "../../components/HeaderLogin";
+import axios from 'axios';
 
 function LoginPage() {
   const [form, setForm] = useState({
@@ -21,19 +22,25 @@ function LoginPage() {
   const goToRegisterPage = () => {
     navigate("/register");
   };
+
   const goToHomePage = () => {
     navigate("/home");
   };
 
   const handleLogin = async () => {
     try {
-      const userData = await login(form.email.value, form.password.value);
-      console.log('Usuário logado:', userData);
-      goToHomePage();
+      const response = await axios.post('http://localhost:8080/login', {
+        emailUsuario: form.email.value,
+        senhaUsuario: form.password.value,
+      });
+
+      // Se o login for bem-sucedido, response.data conterá os dados do usuário
+      console.log('Usuário logado:', response.data);
     } catch (error) {
-      console.error('Erro no login:', error.message);
+      // Se o login falhar, trata o erro
+      console.error('Erro ao tentar fazer login:', error);
     }
-  }
+  };
 
   return (
     <main className="centralize">
