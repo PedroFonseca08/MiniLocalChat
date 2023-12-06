@@ -44,8 +44,8 @@ const SideChats = () => {
         {chats.map((chat, index) => (
           <button
             key={index}
-            className={"dark:text-gray-200 h-14 text-gray-200  hover:bg-blue-400 hover:dark:bg-blue-400 hover:text-gray-200 flex items-center pl-8 mx-4 rounded-3xl mt-4 lg:transition-all lg:duration-500 hover:border-blue-400  overflow-hidden" + (chatId === index ? " bg-blue-400 dark:bg-blue-400 text-gray-200 dark:text-gray-200" : "")} 
-            onClick={() => changeChat(index)}
+            className={"dark:text-gray-200 h-14 text-gray-200  hover:bg-blue-400 hover:dark:bg-blue-400 hover:text-gray-200 flex items-center pl-8 mx-4 rounded-3xl mt-4 lg:transition-all lg:duration-500 hover:border-blue-400  overflow-hidden" + (chatId === index + 1 ? " bg-blue-400 dark:bg-blue-400 text-gray-200 dark:text-gray-200" : "")} 
+            onClick={() => changeChat(index + 1)}
           >
             {chat.primeiraPergunta}
           </button>

@@ -159,7 +159,8 @@ const Home = () => {
                     </div>
                     <p className="whitespace-pre-wrap">
                       {/* {index === userQuestion.length - 1 ? aiAnswer[0] : aiAnswers[index]} */}
-                      {aiAnswers[index]}
+                      {/* {aiAnswers[index]} */}
+                      {(index === userQuestion.length - 1 && aiAnswerStop) ? aiAnswer : aiAnswers[index]}
                     </p>
                   </div>
                 </div>
