@@ -11,32 +11,31 @@ import com.GrupoSD.miniLocalChat.repositories.UsuarioRepositorio;
 
 @Service
 public class UsuarioService {
-    
+
     @Autowired
     private UsuarioRepositorio usuarioRepositorio;
 
-    public Usuario encontrarPeloId(Integer id){
+    public Usuario encontrarPeloId(Integer id) {
         Optional<Usuario> usuario = this.usuarioRepositorio.findById(id);
 
         return usuario.orElseThrow(() -> new RuntimeException(
-            "Usuário não encontrado! ID: " + id + " não encontrado"));
+                "Usuário não encontrado! ID: " + id + " não encontrado"));
     }
 
-    public Usuario criarUsuario(Usuario objUsuario){
+    public Usuario criarUsuario(Usuario objUsuario) {
         objUsuario.setIdUsuario(null);
         objUsuario = this.usuarioRepositorio.save(objUsuario);
 
         return objUsuario;
     }
 
-    public Usuario autenticarUsuario(String email, String senha){ //Essa porra aq
+    public Usuario autenticarUsuario(String email, String senha) {
 
         Usuario usuario = usuarioRepositorio.findByEmailUsuarioAndsenhaUsuario(email, senha);
-        
-        if (usuario != null){
+
+        if (usuario != null) {
             return usuario;
-        }
-        else{
+        } else {
             return null;
         }
     }

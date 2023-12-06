@@ -23,12 +23,12 @@ import jakarta.validation.Valid;
 @RequestMapping("/usuario")
 @Validated
 public class UsuarioController {
-    
+
     @Autowired
     private UsuarioService usuarioService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Usuario> encontrarPeloId(@PathVariable Integer id){
+    public ResponseEntity<Usuario> encontrarPeloId(@PathVariable Integer id) {
         Usuario objUsuario = this.usuarioService.encontrarPeloId(id);
 
         return ResponseEntity.ok().body(objUsuario);
@@ -36,10 +36,10 @@ public class UsuarioController {
 
     @PostMapping
     @Validated(CriarUsuario.class)
-    public ResponseEntity<Void> criarUsuario(@Valid @RequestBody Usuario objUsuario){
+    public ResponseEntity<Void> criarUsuario(@Valid @RequestBody Usuario objUsuario) {
         this.usuarioService.criarUsuario(objUsuario);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-            .path("/{id}").buildAndExpand(objUsuario.getIdUsuario()).toUri();
+                .path("/{id}").buildAndExpand(objUsuario.getIdUsuario()).toUri();
 
         return ResponseEntity.created(uri).build();
     }

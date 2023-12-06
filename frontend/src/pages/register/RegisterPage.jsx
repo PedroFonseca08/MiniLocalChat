@@ -11,6 +11,10 @@ function LoginPage() {
       hasChanged: false,
       value: "",
     },
+    username: {
+      hasChanged: false,
+      value: "",
+    },
     password: {
       hasChanged: false,
       value: "",
@@ -22,10 +26,61 @@ function LoginPage() {
     navigate("/home");
   };
 
+  const handleRegister = () => {
+    const objUsuario = {
+      emailUsuario: form.email.value,
+      nomeUsuario: form.username.value,
+      senhaUsuario: form.password.value,
+    };
+  
+    const url = 'http://localhost:8080/usuario';
+  
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(objUsuario),
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Erro ao criar usuário');
+        }
+        console.log('Json:', response);
+        return response.json();
+      })
+      .then(data => {
+        console.log('Usuário criado com sucesso:', data);
+        goToHomePage();
+      })
+      .catch(error => {
+        console.error('Erro ao criar usuário:', error);
+      });
+  }
+  
+
   return (
     <main className="centralize">
       <HeaderLogin />
       <form className="flex flex-col justify-center items-center">
+      <div className="usernameField">
+          <input
+            type="text"
+            placeholder="Nome de Usuário"  
+            value={form.username.value}
+            onChange={(event) =>
+              setForm({
+                ...form,
+                username: {  
+                  hasChanged: true,
+                  value: event.target.value,
+                },
+              })
+            }
+            data-testid="username"  
+          />
+          
+        </div>
         <div className="emailField">
           <input
             type="email"
@@ -50,7 +105,6 @@ function LoginPage() {
             value={form.email.value}
           />
         </div>
-
         <div className="passwordField">
           <input
             type="password"
@@ -81,7 +135,7 @@ function LoginPage() {
           className="dark:text-gray-200 px-2 mx-2 cursor-pointer hover:text-sky-500 dark:hover:text-sky-500 transition-all duration-200 flex items-center py-2"
           data-testid="login-button"
           disabled={!isEmailValid(form.email.value) || !form.password.value}
-          onClick={goToHomePage}
+          onClick={handleRegister}
         >
           Registrar
         </button>

@@ -16,7 +16,8 @@ import jakarta.validation.constraints.Size;
 @Table(name = Usuario.TABLE_NAME)
 public class Usuario {
 
-    public interface CriarUsuario {}
+    public interface CriarUsuario {
+    }
 
     public static final String TABLE_NAME = "usuario";
 
@@ -24,7 +25,7 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario", unique = true)
     private Integer idUsuario;
-    
+
     @Column(name = "email", unique = true, nullable = false, length = 80)
     @NotBlank(groups = CriarUsuario.class)
     @Size(groups = CriarUsuario.class, min = 2, max = 80)
@@ -35,11 +36,10 @@ public class Usuario {
     @Size(groups = CriarUsuario.class, min = 2, max = 80)
     private String nomeUsuario;
 
-    
     @JsonProperty(access = Access.WRITE_ONLY)
     @Column(name = "senha", nullable = false, length = 80)
-    @NotBlank(groups = {CriarUsuario.class})
-    @Size(groups = {CriarUsuario.class}, min = 8, max = 80)
+    @NotBlank(groups = { CriarUsuario.class })
+    @Size(groups = { CriarUsuario.class }, min = 8, max = 80)
     private String senhaUsuario;
 
     public Usuario() {
