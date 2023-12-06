@@ -36,12 +36,10 @@ public class UsuarioController {
 
     @PostMapping
     @Validated(CriarUsuario.class)
-    public ResponseEntity<Void> criarUsuario(@Valid @RequestBody Usuario objUsuario) {
+    public ResponseEntity<String> criarUsuario(@Valid @RequestBody Usuario objUsuario) {
         this.usuarioService.criarUsuario(objUsuario);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("/{id}").buildAndExpand(objUsuario.getIdUsuario()).toUri();
 
-        return ResponseEntity.created(uri).build();
+        return ResponseEntity.ok("deu bom");
     }
 
     @PostMapping("/login")
