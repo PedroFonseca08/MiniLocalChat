@@ -52,7 +52,7 @@ Certifique-se de ter os seguintes requisitos instalados antes de executar o proj
    - Clone o repositório: `git clone https://github.com/PedroFonseca08/MiniLocalChat.git`
 
 2. **Execução:**
-   - Ative o servidor do Vide.
+   - Ative o servidor do Vite.
    - Execute a aplicação Spring Boot.
    - Ative o Ollama no sistema Linux.
 
