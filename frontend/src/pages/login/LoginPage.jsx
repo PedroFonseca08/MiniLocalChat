@@ -29,13 +29,14 @@ function LoginPage() {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:8080/login', {
+      const response = await axios.post('http://localhost:8080/usuario/login', {
         emailUsuario: form.email.value,
         senhaUsuario: form.password.value,
       });
 
       // Se o login for bem-sucedido, response.data conterá os dados do usuário
       console.log('Usuário logado:', response.data);
+      goToHomePage();
     } catch (error) {
       // Se o login falhar, trata o erro
       console.error('Erro ao tentar fazer login:', error);
