@@ -4,6 +4,7 @@ import Header from "../../components/Header";
 import SideChats from "../../components/SideChats";
 import QuestionBar from "../../components/QuestionBar";
 import { ChatContext } from "../../contexts/ChatContext";
+import { useLocation } from 'react-router-dom';
 
 const Home = () => {
   const [question, setQuestion] = useState("");
@@ -17,6 +18,9 @@ const Home = () => {
 
   const [lastQuestion, setLastQuestion] = useState("");
   const [lastAnswer, setLastAnswer] = useState("");
+
+  const location = useLocation();
+  const idUsuarioLogado = location.state.idUsuario;
 
   const { chatId } = useContext(ChatContext);
 
@@ -45,14 +49,18 @@ const Home = () => {
     }
   };
 
+
+
   const saveInBD = async () => {
     let objeto = {
       idConversa: chatId,
       data: new Date().toISOString(),
-      idUsuario: 1,
+      idUsuario: idUsuarioLogado,
       pergunta: userQuestion[userQuestion.length - 1],
       resposta: aiAnswers[aiAnswers.length - 1],
     };
+
+    console.log("Id usuario logado: ", objeto.idUsuario);
 
     await fetch("http://localhost:8080/conversa", {
       method: "POST",

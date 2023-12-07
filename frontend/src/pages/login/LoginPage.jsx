@@ -23,9 +23,10 @@ function LoginPage() {
     navigate("/register");
   };
 
-  const goToHomePage = () => {
-    navigate("/home");
+  const goToHomePage = (idUsuario) => {
+    navigate("/home", { state: { idUsuario } });
   };
+
 
   const handleLogin = async () => {
     try {
@@ -35,8 +36,10 @@ function LoginPage() {
       });
 
       // Se o login for bem-sucedido, response.data conterá os dados do usuário
-      console.log('Usuário logado:', response.data);
-      goToHomePage();
+      
+      const id = response.data.idUsuario;
+      console.log('Usuário logado:', id);
+      goToHomePage(id);
     } catch (error) {
       // Se o login falhar, trata o erro
       console.error('Erro ao tentar fazer login:', error);
