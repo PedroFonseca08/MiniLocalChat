@@ -6,6 +6,7 @@ import QuestionBar from "../../components/QuestionBar";
 import { ChatContext } from "../../contexts/ChatContext";
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../contexts/UserContext";
 
 const Home = () => {
   const [question, setQuestion] = useState("");
@@ -32,12 +33,14 @@ const Home = () => {
   }
 
   const { chatId } = useContext(ChatContext);
+  const { userId, changeUserID } = useContext(UserContext);
+  
 
   useEffect(() => {
     setUserQuestion([]);
     setAiAnswers([]);
-    console.log("http://localhost:8080/conversa/1/" + chatId);
-    fetch(`http://localhost:8080/conversa/1/${chatId}`)
+    console.log(`http://localhost:8080/conversa/${userId}/${chatId}`);
+    fetch(`http://localhost:8080/conversa/${userId}/${chatId}`)
       .then((res) => res.json())
       .then((json) => {
         setIsLoaded(true);
@@ -62,7 +65,7 @@ const Home = () => {
     let objeto = {
       idConversa: chatId,
       data: new Date().toISOString(),
-      idUsuario: idUsuarioLogado,
+      idUsuario: userId,
       pergunta: userQuestion[userQuestion.length - 1],
       resposta: aiAnswers[aiAnswers.length - 1],
     };

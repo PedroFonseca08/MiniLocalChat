@@ -3,15 +3,18 @@ import { FaPlus } from "react-icons/fa6";
 import { useContext } from "react";
 import { ChatContext } from "../contexts/ChatContext";
 import { useRef } from "react";
+import { UserContext } from "../contexts/UserContext";
+
 
 const SideChats = () => {
   const [chats, setChats] = useState(["Chat 1", "Chat 2", "Chat 3"]);
   const [lastID, setLastID] = useState(-1);
 
   const { chatId, changeChat } = useContext(ChatContext);
+  const { userId } = useContext(UserContext);
 
   useEffect(() => {
-    fetch("http://localhost:8080/conversa/1")
+    fetch("http://localhost:8080/conversa/" + userId)
       .then((res) => res.json())
       .then((json) => {
         setChats(json);
@@ -19,7 +22,7 @@ const SideChats = () => {
   }, [chatId]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/conversa/proximoId/1")
+    fetch("http://localhost:8080/conversa/proximoId/" + userId)
       .then((res) => res.json())
       .then((json) => {
         setLastID(json);

@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { isEmailValid } from "../../helpers/EmailHelper";
 import ValidationError from "../../components/validation-error/ValidationError";
 import "./LoginPage.css";
 import { useNavigate } from "react-router-dom";
 import HeaderLogin from "../../components/HeaderLogin";
 import axios from 'axios';
+import { UserContext } from "../../contexts/UserContext";
+
+
 
 function LoginPage() {
   const [form, setForm] = useState({
@@ -18,12 +21,15 @@ function LoginPage() {
     },
   });
 
+  const { changeUserID } = useContext(UserContext);
+
   const navigate = useNavigate();
   const goToRegisterPage = () => {
     navigate("/register");
   };
 
   const goToHomePage = (idUsuario) => {
+    changeUserID(idUsuario);
     navigate("/home", { state: { idUsuario } });
   };
 
