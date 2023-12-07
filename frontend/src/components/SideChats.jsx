@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { ChatContext } from "../contexts/ChatContext";
 import { useRef } from "react";
 import { UserContext } from "../contexts/UserContext";
+import { RiRobot2Fill } from "react-icons/ri";
 
 
 const SideChats = () => {
@@ -35,7 +36,7 @@ const SideChats = () => {
         className={"dark:text-gray-200 h-14 text-gray-900  hover:bg-blue-400 hover:dark:bg-blue-400 hover:text-gray-200 flex items-center pl-8 mx-4 rounded-3xl mt-4 lg:transition-all lg:duration-500 hover:border-blue-400 group font-bold text-l" + (chatId === lastID ? " bg-blue-400 dark:bg-blue-400 text-gray-200 dark:text-gray-200" : "  dark:bg-gray-900 bg-gray-300 ")}
             onClick={() => changeChat(lastID)}
       >
-        <FaPlus className="mr-2 group-hover:rotate-[360deg] lg:duration-700 lg:transition-all" />
+        <RiRobot2Fill  className="mr-2 lg:duration-700 lg:transition-all" />
         New Chat
       </button>
 

@@ -11,6 +11,7 @@ import { NavLink } from "react-router-dom";
 import { IoTriangleSharp } from "react-icons/io5";
 import { useState } from "react";
 import { FaGlasses } from "react-icons/fa";
+import { RiRobot2Fill } from "react-icons/ri";
 
 const Navbar = ({
   handleClickToggle,
@@ -26,7 +27,7 @@ const Navbar = ({
       <div className="max-w-screen-xl mx-auto p-4 flex justify-between items-center ">
         <NavLink to="/">
           <div className="group px-4 flex justify-beetween items-center cursor-pointer justify-center transition-all duration-700">
-            <FaGlasses className="text-sky-400 text-4xl group-hover:rotate-[360deg] duration-700 transition-all" />
+            <RiRobot2Fill className="text-sky-400 text-4xl group-hover:rotate-[360deg] duration-700 transition-all" />
           </div>
         </NavLink>
         <div>

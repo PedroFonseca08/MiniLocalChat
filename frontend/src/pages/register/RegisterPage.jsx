@@ -27,7 +27,7 @@ function LoginPage() {
 
   const goToHomePage = (idUsuario) => {
     changeUserID(idUsuario);
-    navigate("/home", { state: { idUsuario } });
+    navigate("/", { state: { idUsuario } });
   };
 
   const handleRegister = () => {

@@ -8,7 +8,10 @@ import { useLocation } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 
-const Home = () => {
+const Home = () => { 
+  const { chatId } = useContext(ChatContext);
+  const { userId, changeUserID } = useContext(UserContext);
+
   const [question, setQuestion] = useState("");
   const [userQuestion, setUserQuestion] = useState([]);
   const [aiAnswer, setAiAnswer] = useState([]);
@@ -22,9 +25,10 @@ const Home = () => {
   const [lastAnswer, setLastAnswer] = useState("");
 
 
-  const { chatId } = useContext(ChatContext);
-  const { userId, changeUserID } = useContext(UserContext);
+ 
   
+  
+
 
   useEffect(() => {
     setUserQuestion([]);

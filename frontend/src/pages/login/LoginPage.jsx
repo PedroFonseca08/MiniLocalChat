@@ -30,7 +30,7 @@ function LoginPage() {
   const goToHomePage = (idUsuario) => {
     console.log("Ai nobruzao");
     changeUserID(idUsuario);
-    navigate("/home");
+    navigate("/");
   };
 
 
