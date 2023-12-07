@@ -1,6 +1,13 @@
-# Trabalho Prático
-### Professor: André de Lima Salgado
-### Disciplina: Sistemas Distribuídos - GCC129
+<p align="center">
+<img height="300" src="https://i.imgur.com/VnaYyam.png" alt="React"/>
+</p>
+
+<p align="center">
+  <strong>MiniLocalChat</strong><br>
+  <em>Disciplina: Sistemas Distribuídos - GCC129</em><br>
+  <em>Professor: André de Lima Salgado</em>
+</p>
+
 
 # Chatbot com Armazenamento de Histórico
 Este é um projeto de chatbot desenvolvido para armazenar o histórico das conversas de cada usuário. O chatbot é capaz de interagir com os usuários, responder a perguntas comuns e manter um registro das interações para referência futura.
