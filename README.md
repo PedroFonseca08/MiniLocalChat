@@ -8,11 +8,12 @@
   <em>Professor: André de Lima Salgado</em>
 </p>
 
-
 # Chatbot com Armazenamento de Histórico
+
 Este é um projeto de chatbot desenvolvido para armazenar o histórico das conversas de cada usuário. O chatbot é capaz de interagir com os usuários, responder a perguntas comuns e manter um registro das interações para referência futura.
 
-# Tecnologias Utilizadas:
+# Tecnologias Utilizadas
+
 <code><img height="32" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1150px-React-icon.svg.png" alt="React"/></code>
 <code><img height="32" src="https://pt.vitejs.dev/logo.svg" alt="Vite"/></code>
 <code><img height="32" src="https://yt3.googleusercontent.com/ikv41jMTr1uHGdILrJhvbfVJcDt4oqhwApKX37TjAleF_cRPbF2W-waj7uMnS5JySvnlvAlTCg=s900-c-k-c0x00ffffff-no-rj" alt="Tailwind"/></code>
@@ -31,15 +32,19 @@ Este é um projeto de chatbot desenvolvido para armazenar o histórico das conve
 ## Requisitos
 
 Certifique-se de ter os seguintes requisitos instalados antes de executar o projeto:
+
 - **MySQL 8 ou superior:**
+
   - Visite o site oficial do [MySQL](https://www.mysql.com/) e baixe o instalador adequado para o seu sistema operacional.
   - Siga as instruções de instalação fornecidas na página de download.
 
 - **Java 17 (compatível com a versão do Spring):**
+
   - Visite o site oficial da Oracle ou OpenJDK para baixar o [Java](https://www.oracle.com/java/technologies/javase-downloads.html) ou [OpenJDK](https://openjdk.java.net/).
   - Siga as instruções de instalação para o seu sistema operacional.
 
 - **Node.js 20 ou superior:**
+
   - Visite o site oficial do [Node.js](https://nodejs.org/).
   - Baixe e execute o instalador adequado para o seu sistema operacional.
   - Siga as instruções de instalação fornecidas na página de download.
@@ -50,28 +55,31 @@ Certifique-se de ter os seguintes requisitos instalados antes de executar o proj
 ## Como Usar
 
 1. **Instalação:**
+
    - [Clique aqui](./INSTALL.md) para obter instruções de instalação detalhadas.
 
 2. **Execução utilizando o Visual Studio Code:**
+
    - Abra o projeto no Visual Studio Code.
    - Abra o terminal do Visual Studio Code.
-   - Execute os comandos: 
+   - Execute os comandos:
      ```bash
      cd frontend
      npm run dev
      ```
-    - Agora abra outro terminal do Visual Studio Code.
-    - Encontre pelo próprio explorador de arquivos do Visual Studio Code o arquivo `BackendApplication.java` dentro da pasta `backend/src/main/java/com/GrupoSD/backend`.
-    - Clique com o botão direito do mouse no arquivo e selecione a opção `Run Java` (necessário extensão `Extension Pack for Java`).
-    - Ative o Ollama no sistema Linux ou WSL2 com o comando `ollama run mistral`.
-    - Agora você pode acessar o chatbot em `http://localhost:5173/`.
+   - Agora abra outro terminal do Visual Studio Code.
+   - Encontre pelo próprio explorador de arquivos do Visual Studio Code o arquivo `BackendApplication.java` dentro da pasta `backend/src/main/java/com/GrupoSD/backend`.
+   - Clique com o botão direito do mouse no arquivo e selecione a opção `Run Java` (necessário extensão `Extension Pack for Java`).
+   - Ative o Ollama no sistema Linux ou WSL2 com o comando `ollama run mistral`.
+   - Agora você pode acessar o chatbot em `http://localhost:5173/`.
 
 3. **Uso:**
    - Registre-se com um usuário (ou realize o login, caso já exista).
    - Inicie uma conversa com o chatbot e observe as respostas geradas.
 
-## Arquitetura do Sistema:
-<a href="https://i.imgur.com/LK5eNPw.gif"><img loading="lazy" src="https://i.imgur.com/LK5eNPw.gif" width=700 style="border-radius:50%;" alt="Arquitetura do Sistema" /></a>
+## Arquitetura do Sistema
+
+Saiba mais sobre em [Arquitetura do Sistema](ARCHITECTURE.md)
 
 ## Contribuições
 
@@ -79,5 +87,5 @@ Contribuições são bem-vindas! Se você encontrar bugs ou tiver sugestões par
 
 ## Autores:
 
-| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/95828428?s=96&v=4" width=115><br><sub>Breno Carvalho</sub>](https://github.com/Boakpe) |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/108815161?v=4" width=115><br><sub>Caio Noronha</sub>](https://github.com/CaioNoro) |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/108813803?s=96&v=4" width=115><br><sub>Lucas Malachias</sub>](https://github.com/lucasmalachias) | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/108371507?v=4" width=115><br><sub>Pedro Fonseca</sub>](https://github.com/PedroFonseca08)
-| :---: | :---: | :---: | :---: |
+| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/95828428?s=96&v=4" width=115><br><sub>Breno Carvalho</sub>](https://github.com/Boakpe) | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/108815161?v=4" width=115><br><sub>Caio Noronha</sub>](https://github.com/CaioNoro) | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/108813803?s=96&v=4" width=115><br><sub>Lucas Malachias</sub>](https://github.com/lucasmalachias) | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/108371507?v=4" width=115><br><sub>Pedro Fonseca</sub>](https://github.com/PedroFonseca08) |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------: |
