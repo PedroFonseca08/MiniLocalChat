@@ -33,10 +33,10 @@ public class UsuarioController {
 
     @PostMapping
     @Validated(CriarUsuario.class)
-    public ResponseEntity<String> criarUsuario(@Valid @RequestBody Usuario objUsuario) {
+    public ResponseEntity<Usuario> criarUsuario(@Valid @RequestBody Usuario objUsuario) {
         this.usuarioService.criarUsuario(objUsuario);
 
-        return ResponseEntity.ok("deu bom");
+        return ResponseEntity.ok(objUsuario);
     }
 
     @PostMapping("/login")

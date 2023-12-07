@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { isEmailValid } from "./../../helpers/EmailHelper";
 import ValidationError from "./../../components/validation-error/ValidationError";
 import "./RegisterPage.css";
 import { useNavigate } from "react-router-dom";
 import HeaderLogin from "../../components/HeaderLogin";
+import { UserContext } from "../../contexts/UserContext";
 
 function LoginPage() {
   const [form, setForm] = useState({
@@ -22,8 +23,10 @@ function LoginPage() {
   });
 
   const navigate = useNavigate();
+  const { changeUserID } = useContext(UserContext);
 
   const goToHomePage = (idUsuario) => {
+    changeUserID(idUsuario);
     navigate("/home", { state: { idUsuario } });
   };
 
@@ -52,13 +55,15 @@ function LoginPage() {
       })
       .then(data => {
         console.log('Usuário criado com sucesso:', data);
-        
+
+        const idUsuario = data.idUsuario;
         goToHomePage(idUsuario);
       })
       .catch(error => {
         console.error('Erro ao criar usuário:', error);
       });
   }
+
   
 
   return (
