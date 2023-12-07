@@ -36,12 +36,15 @@ Este é um projeto de chatbot desenvolvido para armazenar o histórico das conve
 ## Requisitos
 
 Certifique-se de ter os seguintes requisitos instalados antes de executar o projeto:
+- **MySQL 8 ou superior:**
+  - Visite o site oficial do [MySQL](https://www.mysql.com/) e baixe o instalador adequado para o seu sistema operacional.
+  - Siga as instruções de instalação fornecidas na página de download.
 
-- **Java (compatível com a versão do Spring):**
+- **Java 17 (compatível com a versão do Spring):**
   - Visite o site oficial da Oracle ou OpenJDK para baixar o [Java](https://www.oracle.com/java/technologies/javase-downloads.html) ou [OpenJDK](https://openjdk.java.net/).
   - Siga as instruções de instalação para o seu sistema operacional.
 
-- **Node.js:**
+- **Node.js 20 ou superior:**
   - Visite o site oficial do [Node.js](https://nodejs.org/).
   - Baixe e execute o instalador adequado para o seu sistema operacional.
   - Siga as instruções de instalação fornecidas na página de download.
@@ -51,13 +54,22 @@ Certifique-se de ter os seguintes requisitos instalados antes de executar o proj
 
 ## Como Usar
 
-1. **Configuração:**
-   - Clone o repositório: `git clone https://github.com/PedroFonseca08/MiniLocalChat.git`
+1. **Instalação:**
+   - [Clique aqui](./INSTALL.md) para obter instruções de instalação detalhadas.
 
-2. **Execução:**
-   - Ative o servidor do Vite.
-   - Execute a aplicação Spring Boot.
-   - Ative o Ollama no sistema Linux.
+2. **Execução utilizando o Visual Studio Code:**
+   - Abra o projeto no Visual Studio Code.
+   - Abra o terminal do Visual Studio Code.
+   - Execute os comandos: 
+     ```bash
+     cd frontend
+     npm run dev
+     ```
+    - Agora abra outro terminal do Visual Studio Code.
+    - Encontre pelo próprio explorador de arquivos do Visual Studio Code o arquivo `BackendApplication.java` dentro da pasta `backend/src/main/java/com/GrupoSD/backend`.
+    - Clique com o botão direito do mouse no arquivo e selecione a opção `Run Java` (necessário extensão `Extension Pack for Java`).
+    - Ative o Ollama no sistema Linux ou WSL2 com o comando `ollama run mistral`.
+    - Agora você pode acessar o chatbot em `http://localhost:5173/`.
 
 3. **Uso:**
    - Registre-se com um usuário (ou realize o login, caso já exista).
