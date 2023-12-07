@@ -20,10 +20,6 @@ Este é um projeto de chatbot desenvolvido para armazenar o histórico das conve
 
 * Armazenamento de Histórico: Todas as interações do usuário são registradas e armazenadas para referência futura.
 
-# Chatbot com Armazenamento de Histórico
-
-Este é um projeto de chatbot desenvolvido para armazenar o histórico das conversas de cada usuário. O chatbot é capaz de interagir com os usuários, responder a perguntas comuns e manter um registro das interações para referência futura.
-
 ## Funcionalidades Principais
 
 - **Conversação Interativa:** O chatbot é capaz de engajar os usuários em conversas interativas.
