@@ -57,7 +57,7 @@ Certifique-se de ter os seguintes requisitos instalados antes de executar o proj
    - Inicie uma conversa com o chatbot e observe as respostas geradas.
 
 # Arquitetura do Sistema:
-<a href="https://imgur.com/PXoodJD"><img loading="lazy" src="https://i.imgur.com/PXoodJD.jpg" width=700 style="border-radius:50%;" alt="Imagem com Borda Arredondada" /></a>
+<a href="https://i.imgur.com/LK5eNPw.gif"><img loading="lazy" src="https://i.imgur.com/LK5eNPw.gif" width=700 style="border-radius:50%;" alt="Arquitetura do Sistema" /></a>
 
 ## Contribuições
 
