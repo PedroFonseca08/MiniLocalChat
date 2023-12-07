@@ -22,11 +22,6 @@ Este é um projeto de chatbot desenvolvido para armazenar o histórico das conve
 <code><img height="32" src="https://avatars.githubusercontent.com/u/317776?s=48&v=4" alt="Spring Boot"/></code>
 <code><img height="32" src="https://github.com/jmorganca/ollama/assets/3325447/0d0b44e2-8f4a-4e99-9b52-a5c1c741c8f7" alt="Ollama"/></code>
 
-# Funcionalidades Principais
-* Conversação Interativa: O chatbot é capaz de engajar os usuários em conversas interativas.
-
-* Armazenamento de Histórico: Todas as interações do usuário são registradas e armazenadas para referência futura.
-
 ## Funcionalidades Principais
 
 - **Conversação Interativa:** O chatbot é capaz de engajar os usuários em conversas interativas.
@@ -63,14 +58,14 @@ Certifique-se de ter os seguintes requisitos instalados antes de executar o proj
    - Registre-se com um usuário (ou realize o login, caso já exista).
    - Inicie uma conversa com o chatbot e observe as respostas geradas.
 
-# Arquitetura do Sistema:
+## Arquitetura do Sistema:
 <a href="https://i.imgur.com/LK5eNPw.gif"><img loading="lazy" src="https://i.imgur.com/LK5eNPw.gif" width=700 style="border-radius:50%;" alt="Arquitetura do Sistema" /></a>
 
 ## Contribuições
 
 Contribuições são bem-vindas! Se você encontrar bugs ou tiver sugestões para melhorar o chatbot, sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
-# Autores:
+## Autores:
 
 | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/95828428?s=96&v=4" width=115><br><sub>Breno Carvalho</sub>](https://github.com/Boakpe) |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/108815161?v=4" width=115><br><sub>Caio Noronha</sub>](https://github.com/CaioNoro) |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/108813803?s=96&v=4" width=115><br><sub>Lucas Malachias</sub>](https://github.com/lucasmalachias) | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/108371507?v=4" width=115><br><sub>Pedro Fonseca</sub>](https://github.com/PedroFonseca08)
 | :---: | :---: | :---: | :---: |
