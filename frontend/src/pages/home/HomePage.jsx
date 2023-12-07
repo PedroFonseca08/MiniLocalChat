@@ -20,17 +20,7 @@ const Home = () => {
 
   const [lastQuestion, setLastQuestion] = useState("");
   const [lastAnswer, setLastAnswer] = useState("");
-  
 
-  const location = useLocation();
-  const idUsuarioLogado = location.state?.idUsuario;
-
-
-  const navigate = useNavigate();
-
-  if (idUsuarioLogado == undefined || idUsuarioLogado == null){
-    navigate("/login");
-  }
 
   const { chatId } = useContext(ChatContext);
   const { userId, changeUserID } = useContext(UserContext);

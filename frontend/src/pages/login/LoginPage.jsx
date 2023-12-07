@@ -8,7 +8,6 @@ import axios from 'axios';
 import { UserContext } from "../../contexts/UserContext";
 
 
-
 function LoginPage() {
   const [form, setForm] = useState({
     email: {
@@ -29,8 +28,9 @@ function LoginPage() {
   };
 
   const goToHomePage = (idUsuario) => {
+    console.log("Ai nobruzao");
     changeUserID(idUsuario);
-    navigate("/home", { state: { idUsuario } });
+    navigate("/home");
   };
 
 
@@ -45,6 +45,7 @@ function LoginPage() {
       
       const id = response.data.idUsuario;
       console.log('Usuário logado:', id);
+      console.log("Ai nobruzao");
       goToHomePage(id);
     } catch (error) {
       // Se o login falhar, trata o erro
