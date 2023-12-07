@@ -36,57 +36,54 @@ function LoginPage() {
       nomeUsuario: form.username.value,
       senhaUsuario: form.password.value,
     };
-  
-    const url = 'http://localhost:8080/usuario';
-  
+
+    const url = "http://localhost:8080/usuario";
+
     fetch(url, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(objUsuario),
     })
-      .then(response => {
+      .then((response) => {
         if (!response.ok) {
-          throw new Error('Erro ao criar usuário');
+          throw new Error("Erro ao criar usuário");
         }
-        console.log('Json:', response);
+        console.log("Json:", response);
         return response.json();
       })
-      .then(data => {
-        console.log('Usuário criado com sucesso:', data);
+      .then((data) => {
+        console.log("Usuário criado com sucesso:", data);
 
         const idUsuario = data.idUsuario;
         goToHomePage(idUsuario);
       })
-      .catch(error => {
-        console.error('Erro ao criar usuário:', error);
+      .catch((error) => {
+        console.error("Erro ao criar usuário:", error);
       });
-  }
-
-  
+  };
 
   return (
     <main className="centralize">
       <HeaderLogin />
       <form className="flex flex-col justify-center items-center">
-      <div className="usernameField">
+        <div className="usernameField">
           <input
             type="text"
-            placeholder="Nome de Usuário"  
+            placeholder="Nome de Usuário"
             value={form.username.value}
             onChange={(event) =>
               setForm({
                 ...form,
-                username: {  
+                username: {
                   hasChanged: true,
                   value: event.target.value,
                 },
               })
             }
-            data-testid="username"  
+            data-testid="username"
           />
-          
         </div>
         <div className="emailField">
           <input
@@ -104,13 +101,15 @@ function LoginPage() {
             }
             data-testid="email"
           />
-          <ValidationError
-            hasChanged={form.email.hasChanged}
-            errorMessage="Email é inválido"
-            testId="email-invalid"
-            type="email"
-            value={form.email.value}
-          />
+          {form.email.hasChanged && form.email.value && (
+            <ValidationError
+              hasChanged={form.email.hasChanged}
+              errorMessage="Email é inválido"
+              testId="email-invalid"
+              type="email"
+              value={form.email.value}
+            />
+          )}
         </div>
         <div className="passwordField">
           <input
@@ -128,13 +127,22 @@ function LoginPage() {
             }
             data-testid="password"
           />
-          <ValidationError
+          {/* <ValidationError
             hasChanged={form.password.hasChanged}
             errorMessage="Senha é obrigatória"
             testId="password-required"
             type="required"
             value={form.password.value}
-          />
+          /> */}
+          {form.password.hasChanged && form.password.value && (
+            <ValidationError
+              hasChanged={form.password.hasChanged}
+              errorMessage="A senha deve ter pelo menos 8 caracteres"
+              testId="password-required"
+              type="password"
+              value={form.password.value}
+            />
+          )}
         </div>
 
         <button

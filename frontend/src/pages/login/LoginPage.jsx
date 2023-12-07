@@ -4,9 +4,8 @@ import ValidationError from "../../components/validation-error/ValidationError";
 import "./LoginPage.css";
 import { useNavigate } from "react-router-dom";
 import HeaderLogin from "../../components/HeaderLogin";
-import axios from 'axios';
+import axios from "axios";
 import { UserContext } from "../../contexts/UserContext";
-
 
 function LoginPage() {
   const [form, setForm] = useState({
@@ -33,23 +32,22 @@ function LoginPage() {
     navigate("/");
   };
 
-
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:8080/usuario/login', {
+      const response = await axios.post("http://localhost:8080/usuario/login", {
         emailUsuario: form.email.value,
         senhaUsuario: form.password.value,
       });
 
       // Se o login for bem-sucedido, response.data conterá os dados do usuário
-      
+
       const id = response.data.idUsuario;
-      console.log('Usuário logado:', id);
+      console.log("Usuário logado:", id);
       console.log("Ai nobruzao");
       goToHomePage(id);
     } catch (error) {
       // Se o login falhar, trata o erro
-      console.error('Erro ao tentar fazer login:', error);
+      console.error("Erro ao tentar fazer login:", error);
     }
   };
 
@@ -107,13 +105,15 @@ function LoginPage() {
             }
             data-testid="password"
           />
-          <ValidationError
-            hasChanged={form.password.hasChanged}
-            errorMessage="Senha é obrigatória"
-            testId="password-required"
-            type="required"
-            value={form.password.value}
-          />
+          {form.password.hasChanged && form.password.value && (
+            <ValidationError
+              hasChanged={form.password.hasChanged}
+              errorMessage="A senha deve ter pelo menos 8 caracteres"
+              testId="password-required"
+              type="password"
+              value={form.password.value}
+            />
+          )}
         </div>
 
         <button
