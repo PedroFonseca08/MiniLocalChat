@@ -22,8 +22,9 @@ function LoginPage() {
   });
 
   const navigate = useNavigate();
-  const goToHomePage = () => {
-    navigate("/home");
+
+  const goToHomePage = (idUsuario) => {
+    navigate("/home", { state: { idUsuario } });
   };
 
   const handleRegister = () => {
@@ -51,7 +52,8 @@ function LoginPage() {
       })
       .then(data => {
         console.log('Usuário criado com sucesso:', data);
-        goToHomePage();
+        
+        goToHomePage(idUsuario);
       })
       .catch(error => {
         console.error('Erro ao criar usuário:', error);

@@ -5,6 +5,7 @@ import SideChats from "../../components/SideChats";
 import QuestionBar from "../../components/QuestionBar";
 import { ChatContext } from "../../contexts/ChatContext";
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [question, setQuestion] = useState("");
@@ -18,9 +19,17 @@ const Home = () => {
 
   const [lastQuestion, setLastQuestion] = useState("");
   const [lastAnswer, setLastAnswer] = useState("");
+  
 
   const location = useLocation();
-  const idUsuarioLogado = location.state.idUsuario;
+  const idUsuarioLogado = location.state?.idUsuario;
+
+
+  const navigate = useNavigate();
+
+  if (idUsuarioLogado == undefined || idUsuarioLogado == null){
+    navigate("/login");
+  }
 
   const { chatId } = useContext(ChatContext);
 
@@ -48,8 +57,6 @@ const Home = () => {
       handleAskQuestion();
     }
   };
-
-
 
   const saveInBD = async () => {
     let objeto = {
